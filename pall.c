@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
-  * pall - removes an element from the stack
+  * pall - prints an element from the stack
   * @stack: pointer to the stack list
-  * @line_number: line number for a specific instruction
+  * @line_number: line number
   * Return: void
   */
 
