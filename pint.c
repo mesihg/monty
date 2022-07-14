@@ -10,6 +10,7 @@
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
+
 	if (*stack == NULL || current == NULL)
 		show_pint_error_msg(line_number);
 	printf("%d\n", current->n);
