@@ -21,7 +21,10 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 	for (i = 0; opts[i].opcode != NULL; i++)
 	{
 		if (strcmp(opts[i].opcode, opt_code) == 0)
+		{
 			opts[i].f(stack, line_number);
+			return;
+		}
 	}
 	show_instr_error_msg(line_number, opt_code);
 }

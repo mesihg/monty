@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 	char *val = arg.data;
 	int i, data;
-
+        
 	if (!val)
 	{
 		 show_invalid_input_error_msg(line_number);
