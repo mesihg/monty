@@ -13,9 +13,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 		show_pop_error_msg(line_number);
-	current = (*stack)->next;
-	if ((*stack)->next != NULL)
-		(*stack)->next->prev = NULL;
-	free(*stack);
-	*stack = current;
+	current = *stack;
+	*stack = current->next;
+	free(current);
 }
