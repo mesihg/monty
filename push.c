@@ -15,13 +15,15 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!val)
 	{
-		 show_invalid_input_error_msg(line_number);
+		show_invalid_input_error_msg(line_number);
 	}
 
 	for (i = 0; val[i] != '\0'; i++)
 	{
 		if (!isdigit(val[i]) && val[i] != '-')
-			 show_invalid_input_error_msg(line_number);
+		{
+			show_invalid_input_error_msg(line_number);
+		}
 	}
 	data = atoi(val);
 	new_node = (stack_t *)malloc(sizeof(stack_t));
