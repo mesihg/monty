@@ -22,11 +22,12 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+int n;
+struct stack_s *prev;
+struct stack_s *next;
 } stack_t;
 
 /**
@@ -39,8 +40,9 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(stack_t **stack, unsigned int line_number);
+
 } instruction_t;
 
 /**
@@ -58,15 +60,17 @@ typedef struct data_s
 data_t arg;
 
 void show_instr_error_msg(unsigned int line_number, char *opt_code);
-void show_usage_error_msg();
+void show_usage_error_msg(void);
 void show_pint_error_msg(unsigned int line_number);
 void show_pop_error_msg(unsigned int line_number);
+void show_swap_error_msg(unsigned int line_number);
 void show_invalid_input_error_msg(unsigned int line_number);
 void show_file_error_msg(char *file_name);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *h);
 void opt_runner(char *opt_content, stack_t **stack, unsigned int line_number);
 
