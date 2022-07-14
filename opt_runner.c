@@ -14,6 +14,7 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 	instruction_t opts[] = {
 	{"push", push},
 	{"pall", pall},
+	{"pint", pint},
 	{NULL, NULL}
 	};
 
