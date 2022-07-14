@@ -26,7 +26,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 
 	temp = *stack;
-	temp_num = temp->n - temp->next->n;
+	temp_num = temp->next->n - temp->n;
 	temp->next->n = temp_num;
 	*stack = temp->next;
 	free(temp);
