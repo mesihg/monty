@@ -60,11 +60,13 @@ data_t arg;
 void show_instr_error_msg(unsigned int line_number, char *opt_code);
 void show_usage_error_msg();
 void show_pint_error_msg(unsigned int line_number);
+void show_pop_error_msg(unsigned int line_number);
 void show_invalid_input_error_msg(unsigned int line_number);
 void show_file_error_msg(char *file_name);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *h);
 void opt_runner(char *opt_content, stack_t **stack, unsigned int line_number);
 
