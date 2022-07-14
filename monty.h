@@ -55,7 +55,7 @@ typedef struct data_s
 } data_t;
 
 /* global variable */
-extern data_t arg;
+data_t arg;
 
 void show_instr_error_msg(unsigned int line_number, char *opt_code);
 void show_usage_error_msg();
