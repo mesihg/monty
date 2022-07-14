@@ -1,10 +1,17 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <ctype.h>
+#include <errno.h>
+#include <unistd.h>
+#include <stddef.h>
+#include <sys/stat.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,10 +43,23 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *argument;
+/**
+ * struct data_s - data value for the operation
+ * @data: the data value
+ * Description: global data structure that provide data to functions.
+ */
+
+typedef struct data_s
+{
+	char *data;
+} data_t;
+
+/* global variable */
+extern data_t arg;
 
 void show_instr_error_msg(unsigned int line_number, char *opt_code);
 void show_usage_error_msg();
+void show_invalid_input_error_msg(unsigned int line_number);
 void show_file_error_msg(char *file_name);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
