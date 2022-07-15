@@ -22,6 +22,7 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 	{"sub", sub},
 	{"div", m_div},
 	{"mul", mul},
+	{"mod", mod},
 	{NULL, NULL}
 	};
 
