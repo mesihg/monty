@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 
 		optcode = strtok(line_buffer, " \t\n");
 
-		if (!optcode)
+		if (!optcode && optcode[0] != '#')
 		{
 			line_count++;
 			continue;
