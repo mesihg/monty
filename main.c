@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char *optcode = NULL;
 	char *line_buffer = NULL;
 	size_t line_buffer_size = 0;
-	unsigned int line_count = 0;
+	unsigned int line_count = 1;
 
 	stack_t *stack;
 
@@ -26,17 +26,22 @@ int main(int argc, char **argv)
 
 	while ((getline(&line_buffer, &line_buffer_size, fd)) != (-1))
 	{
-		line_count++;
+		if (*line_buffer == '\n')
+		{
+			line_count++;
+			continue;
+		}
 
 		optcode = strtok(line_buffer, " \t\n");
 
-		if (!optcode && optcode[0] != '#')
+		if (!optcode)
 		{
 			line_count++;
 			continue;
 		}
 		arg.data = strtok(NULL, " \t\n");
 		opt_runner(optcode, &stack, line_count);
+		line_count++;
 
 	}
 

@@ -25,8 +25,8 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 	{"mod", mod},
 	{NULL, NULL}
 	};
-
-
+	if (opt_code && opt_code[0] == '#')
+		return;
 	for (i = 0; opts[i].opcode != NULL; i++)
 	{
 		if (strcmp(opts[i].opcode, opt_code) == 0)
