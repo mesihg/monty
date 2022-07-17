@@ -9,15 +9,13 @@
 
 void pchar(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current;
+	stack_t *current = *stack;
 
-	if (stack == NULL || *stack == NULL)
+	if (current == NULL)
 		pchar_empty_error_msg(line_number);
 
-	current = *stack;
 	if (current->n > 127 || current->n < 0)
-	{
 		pchar_range_error_msg(line_number);
-	}
+
 	printf("%c\n", current->n);
 }
