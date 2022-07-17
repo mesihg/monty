@@ -20,7 +20,7 @@ void pchar_range_error_msg(unsigned int line_number)
 
 void pchar_empty_error_msg(unsigned int line_number)
 {
-	fprintf(stderr, "L%d: usage: can't pchar, stack empty\n", line_number);
+	fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 	exit(EXIT_FAILURE);
 }
 
