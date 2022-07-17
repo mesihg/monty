@@ -13,20 +13,20 @@ void push(stack_t **stack, unsigned int line_number)
 	char *val = arg.data;
 	int i, data;
 
-	if (!val)
+	if (val == NULL)
 	{
 		show_invalid_input_error_msg(line_number);
 	}
 
 	for (i = 0; val[i] != '\0'; i++)
 	{
-		if (!isdigit(val[i]) && val[i] != '-')
+		if (isdigit(val[i]) == 0 && val[i] != '-')
 		{
 			show_invalid_input_error_msg(line_number);
 		}
 	}
 	data = atoi(val);
-	new_node = (stack_t *)malloc(sizeof(stack_t));
+	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
