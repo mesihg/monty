@@ -35,6 +35,7 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 			opts[i].f(stack, line_number);
 			return;
 		}
+		i++;
 	}
 	show_instr_error_msg(line_number, opt_code);
 }
