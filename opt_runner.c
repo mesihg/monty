@@ -2,15 +2,14 @@
 
 /**
  * opt_runner - interprets the given operation code
- * @opt_code: operation code
+ * @opt_content: operation content
  * @stack: pointer to the stack list
  * @line_number: line number of opt_content
  * Return: void
  */
 
-void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
+void opt_runner(char *opt_content, stack_t **stack, unsigned int line_number)
 {
-	int i;
 	instruction_t opts[] = {
 	{"push", push},
 	{"pall", pall},
@@ -27,8 +26,15 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 	};
 
 
-	i = 0;
-	while (opts[i].opcode != NULL)
+	unsigned int i = 0;
+	char *opt_code;
+
+	opt_code = strtok(opt_content, " \t\n");
+	if (opt_code && opt_code[0] == '#')
+		return;
+	arg.data = strtok(NULL, " \t\n");
+
+	while (opts[i].opcode && opt_code)
 	{
 		if (strcmp(opts[i].opcode, opt_code) == 0)
 		{
@@ -37,5 +43,6 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 		}
 		i++;
 	}
-	show_instr_error_msg(line_number, opt_code);
+	if (opt_code && opts[i].opcode == NULL)
+		show_instr_error_msg(line_number, opt_code);
 }
