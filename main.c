@@ -10,13 +10,12 @@
 int main(int argc, char **argv)
 {
 	FILE *fd;
-	char *optcode;
-	char *line_buffer;
+	char *optcode = NULL;
+	char *line_buffer = NULL;
 	size_t line_buffer_size = 0;
-	ssize_t read_line = 1;
-	unsigned int line_count = 0;
+	unsigned int line_count = 1;
 
-	stack_t *stack = NULL;
+	stack_t *stack;
 
 	if (argc != 2)
 		show_usage_error_msg();
@@ -25,14 +24,19 @@ int main(int argc, char **argv)
 	if (fd == NULL)
 		show_file_error_msg(argv[1]);
 
-	while (read_line > 0)
+	while ((getline(&line_buffer, &line_buffer_size, fd)) != (-1))
 	{
-		line_buffer = NULL;
-		read_line = getline(&line_buffer, &line_buffer_size, fd);
 		line_count++;
-		if (read_line > 0)
-			opt_runner(line_buffer, &stack, line_count);
-		free(line_buffer);
+
+		optcode = strtok(line_buffer, " \t\n");
+
+		if (!optcode && optcode[0] != '#')
+		{
+			line_count++;
+			continue;
+		}
+		arg.data = strtok(NULL, " \t\n");
+		opt_runner(optcode, &stack, line_count);
 
 	}
 
