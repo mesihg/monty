@@ -67,6 +67,8 @@ void show_swap_error_msg(unsigned int line_number);
 void show_add_error_msg(unsigned int line_number);
 void show_invalid_input_error_msg(unsigned int line_number);
 void show_file_error_msg(char *file_name);
+void pchar_range_error_msg(unsigned int line_number);
+void pchar_empty_error_msg(unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
