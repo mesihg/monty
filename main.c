@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char *optcode = NULL;
 	char *line_buffer = NULL;
 	size_t line_buffer_size = 0;
-	unsigned int line_count = 1;
+	unsigned int line_count = 0;
 
 	stack_t *stack = NULL;
 
