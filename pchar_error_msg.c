@@ -8,7 +8,7 @@
 
 void pchar_range_error_msg(unsigned int line_number)
 {
-	fprintf(stderr, "L%d: can't pchar, value out of range\n");
+	fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 	exit(EXIT_FAILURE);
 }
 
