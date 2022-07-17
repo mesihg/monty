@@ -27,7 +27,8 @@ void opt_runner(char *opt_code, stack_t **stack, unsigned int line_number)
 	};
 
 
-	for (i = 0; opts[i].opcode != NULL; i++)
+	i = 0;
+	while (opts[i].opcode != NULL)
 	{
 		if (strcmp(opts[i].opcode, opt_code) == 0)
 		{
